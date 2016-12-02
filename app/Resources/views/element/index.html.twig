@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Element list</h1>
+
+    <table class="records_list table table-striped table-condensed ">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Atomic number</th>
+                <th>Alias</th>
+                <th>Atomic mass</th>
+                <th>Boiling point</th>
+                <th>Melting point</th>
+                <th>Van derwaals radius</th>
+                <th>Ionic radius</th>
+                <th>Density</th>
+                <th>Group</th>
+                <th>Block</th>
+                <th>Period</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for element in elements %}
+            <tr>
+                <td><a href="{{ path('element_show', { 'id': element.id }) }}">{{ element.id }}</a></td>
+                <td>{{ element.name }}</td>
+                <td>{{ element.atomicNumber }}</td>
+                <td>{{ element.alias }}</td>
+                <td>{{ element.atomicMass }}</td>
+                <td>{{ element.boilingPoint }}</td>
+                <td>{{ element.meltingPoint }}</td>
+                <td>{{ element.vanderwaalsRadius }}</td>
+                <td>{{ element.ionicRadius }}</td>
+                <td>{{ element.density }}</td>
+                <td>{{ element.elGroup }}</td>
+                <td>{{ element.elBlock }}</td>
+                <td>{{ element.elPeriod }}</td>
+                <td>
+                    <a href="{{ path('element_show', { 'id': element.id }) }}">show</a>
+                    <a href="{{ path('element_edit', { 'id': element.id }) }}">edit</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('element_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,11 @@
+werd_things_element:
+    resource: "@WerdThingsBundle/Controller/ElementController.php"
+    type:     annotation
+
+werd_things:
+    resource: "@WerdThingsBundle/Resources/config/routing.xml"
+    prefix:   /
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
